@@ -1,12 +1,14 @@
 ﻿using System;
 
-namespace _05_jumper
+namespace _05_jumper.Game
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            Console.WriteLine("Starting point for the Jumper project.");
+            Director director = new Director();
+            director.StartGame();
+            return 0;
         }
     }
 }
