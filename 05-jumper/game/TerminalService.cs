@@ -5,7 +5,7 @@ namespace _05_jumper.Game{
 
     public class TerminalService{
 
-        // List<String> words = new List<String>();
+        // used to display the jumper
         public TerminalService() {}
 
         public void DisplayJumper(List<String> jumper) {
