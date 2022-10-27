@@ -27,7 +27,7 @@ namespace _05_jumper.Game
         public Director()
         { 
             _game_word = word.getWord();
-            Console.WriteLine(_game_word);
+            // Console.WriteLine(_game_word);
             _guess_blanks = word.CreateSpaces(_game_word);
             Console.WriteLine(_guess_blanks);
             // Console.WriteLine(word.CreateSpaces(_game_word));
@@ -56,7 +56,10 @@ namespace _05_jumper.Game
         public void GetInputs()
         {
             Console.WriteLine("Guess a letter");
+            Console.WriteLine("");
             _guess = Console.ReadLine();
+            Console.WriteLine("");
+            
         }
 
         /// <summary>
@@ -64,7 +67,7 @@ namespace _05_jumper.Game
         /// </summary>
         public void DoUpdates()
         {
-            _guess_count++;
+            
             if (_game_word.Contains(_guess)){
                 char[] ch = _guess_blanks.ToCharArray();
                 char[] ch2 = _guess.ToCharArray();
@@ -76,16 +79,19 @@ namespace _05_jumper.Game
                 _guess_blanks = new string(ch);
                 // _guess_blanks = new_guess_blanks;
             }
-            else { jumper.RemoveLine(); }
-
+            else { jumper.RemoveLine();
+            _guess_count++; }
+            
             if (!_guess_blanks.Contains("_")){
                 _isPlaying=false;
                 Console.WriteLine("You won!");
             }
             else if(_guess_count ==4){
                 Console.WriteLine("Game over!");
+                display.DisplayJumper(jumper.GetJumper());
                 _isPlaying=false;
             }
+            
         }
 
         /// <summary>

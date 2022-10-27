@@ -1,0 +1,1 @@
+This program is the jumper game. A hangman style terminal game created for CSE 210.
