@@ -69,12 +69,21 @@ namespace Unit04.Game.Directing
             Actor banner = cast.GetFirstActor("banner");
             Actor timer = cast.GetFirstActor("timer");
             Actor robot = cast.GetFirstActor("robot");
+            Actor instructions = cast.GetFirstActor("instructions");
             List<Actor> gems = cast.GetActors("gems");
             List<Actor> rocks = cast.GetActors("rocks");
+            // instructions.SetText("Get 25 Points to win");
             clock.Tick();
-
+            if (points.GetPoints() >= 25){
+                banner.SetText("You Win!!!");
+                return;
+            }
+            else{banner.SetText(points.GetPoints().ToString());}
             timer.SetText(clock.GetTimer());
-            banner.SetText(points.GetPoints().ToString());
+            if (clock.GetTimer() == "Game Over"){
+                return;
+            }
+            
             int maxX = _videoService.GetWidth();
             int maxY = _videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
@@ -90,7 +99,7 @@ namespace Unit04.Game.Directing
                 {
                     cast.RemoveActor("gems", actor);
                     points.AddPoint();
-                    banner.SetText(points.GetPoints().ToString());
+                    // banner.SetText(points.GetPoints().ToString());
                     // Console.WriteLine("Thing");
 
                 }
@@ -109,7 +118,7 @@ namespace Unit04.Game.Directing
                 {
                     cast.RemoveActor("rocks", actor);
                     points.RemovePoint();
-                    banner.SetText(points.GetPoints().ToString());
+                    // banner.SetText(points.GetPoints().ToString());
                     // Console.WriteLine("Thing");
 
                 }

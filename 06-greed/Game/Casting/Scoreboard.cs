@@ -15,17 +15,20 @@ namespace Unit04.Game.Casting
         private int _points;
 
         public Scoreboard(){
-            _points = 600;
+            _points = 0;
         }
 
+        //returns the points
         public int GetPoints(){
             return _points;
         }
 
+        //adds a point
         public void AddPoint(){
             _points++;
         }
 
+        //remobves a point
         public void RemovePoint(){
             _points--;
         }

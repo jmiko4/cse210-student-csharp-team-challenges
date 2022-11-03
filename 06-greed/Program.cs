@@ -46,13 +46,20 @@ namespace Unit04
             banner.SetColor(WHITE);
             banner.SetPosition(new Point(25, 25));
             cast.AddActor("banner", banner);
-
+            //create timer
             Actor timer = new Actor();
             timer.SetText("");
             timer.SetFontSize(25);
             timer.SetColor(WHITE);
-            timer.SetPosition(new Point(725,25));
+            timer.SetPosition(new Point(750,25));
             cast.AddActor("timer", timer);
+            //create instructions
+            Actor instructions = new Actor();
+            instructions.SetText("Get 25 points within 60 seconds to win");
+            instructions.SetFontSize(20);
+            instructions.SetColor(WHITE);
+            instructions.SetPosition(new Point(250,25));
+            cast.AddActor("instructions", instructions);
 
             // create the robot
             Actor robot = new Actor();
@@ -68,7 +75,7 @@ namespace Unit04
             for (int i = 0; i < DEFAULT_GEMS; i++)
             {
                 string text = ("$");
-                // string message = messages[i];
+                
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
@@ -85,13 +92,12 @@ namespace Unit04
                 gem.SetFontSize(FONT_SIZE);
                 gem.SetColor(color);
                 gem.SetPosition(position);
-                // gem.SetMessage(message);
                 cast.AddActor("gems", gem);
             }
             for (int i = 0; i < DEFAULT_ROCKS; i++)
             {
                 string text = ("0");
-                // string message = messages[i];
+                
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
@@ -108,7 +114,7 @@ namespace Unit04
                 rock.SetFontSize(FONT_SIZE);
                 rock.SetColor(color);
                 rock.SetPosition(position);
-                // rock.SetMessage(message);
+                
                 cast.AddActor("rocks", rock);
             }
 
