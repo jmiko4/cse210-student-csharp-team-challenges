@@ -21,10 +21,13 @@ namespace Unit04
         private static int FONT_SIZE = 15;
         private static int COLS = 60;
         private static int ROWS = 40;
-        private static string CAPTION = "Robot Finds Kitten";
-        private static string DATA_PATH = "Data/messages.txt";
+        private static string CAPTION = "GREED";
+        // private static string DATA_PATH = "Data/messages.txt";
         private static Color WHITE = new Color(255, 255, 255);
-        private static int DEFAULT_ARTIFACTS = 40;
+        private static int DEFAULT_GEMS = 40;
+        private static int DEFAULT_ROCKS = 20;
+        // private static int POINTS;
+
 
 
         /// <summary>
@@ -39,46 +42,74 @@ namespace Unit04
             // create the banner
             Actor banner = new Actor();
             banner.SetText("");
-            banner.SetFontSize(FONT_SIZE);
+            banner.SetFontSize(25);
             banner.SetColor(WHITE);
-            banner.SetPosition(new Point(CELL_SIZE, 0));
+            banner.SetPosition(new Point(25, 25));
             cast.AddActor("banner", banner);
+
+            Actor timer = new Actor();
+            timer.SetText("");
+            timer.SetFontSize(25);
+            timer.SetColor(WHITE);
+            timer.SetPosition(new Point(725,25));
+            cast.AddActor("timer", timer);
 
             // create the robot
             Actor robot = new Actor();
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
-            robot.SetPosition(new Point(MAX_X / 2, MAX_Y / 2));
+            robot.SetPosition(new Point(MAX_X / 2, 585));
             cast.AddActor("robot", robot);
 
-            // load the messages
-            List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>();
 
-            // create the artifacts
+            // create the gems
             Random random = new Random();
-            for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
+            for (int i = 0; i < DEFAULT_GEMS; i++)
             {
-                string text = ((char)random.Next(33, 126)).ToString();
-                string message = messages[i];
+                string text = ("$");
+                // string message = messages[i];
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
-                int r = random.Next(0, 256);
-                int g = random.Next(0, 256);
-                int b = random.Next(0, 256);
+                int r = 255;
+                int g = 255;
+                int b = 0;
                 Color color = new Color(r, g, b);
 
-                Artifact artifact = new Artifact();
-                artifact.SetText(text);
-                artifact.SetFontSize(FONT_SIZE);
-                artifact.SetColor(color);
-                artifact.SetPosition(position);
-                artifact.SetMessage(message);
-                cast.AddActor("artifacts", artifact);
+                Gem gem = new Gem();
+                gem.SetText(text);
+                gem.SetFontSize(FONT_SIZE);
+                gem.SetColor(color);
+                gem.SetPosition(position);
+                // gem.SetMessage(message);
+                cast.AddActor("gems", gem);
+            }
+            for (int i = 0; i < DEFAULT_ROCKS; i++)
+            {
+                string text = ("0");
+                // string message = messages[i];
+
+                int x = random.Next(1, COLS);
+                int y = random.Next(1, ROWS);
+                Point position = new Point(x, y);
+                position = position.Scale(CELL_SIZE);
+
+                int r = 111;
+                int g = 78;
+                int b = 55;
+                Color color = new Color(r, g, b);
+
+                Rock rock = new Rock();
+                rock.SetText(text);
+                rock.SetFontSize(FONT_SIZE);
+                rock.SetColor(color);
+                rock.SetPosition(position);
+                // rock.SetMessage(message);
+                cast.AddActor("rocks", rock);
             }
 
             // start the game

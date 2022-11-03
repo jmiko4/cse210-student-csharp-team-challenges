@@ -35,6 +35,17 @@
             "stopAtEntry": false
         },
         {
+            "name": "06-greed",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-06-mastermind",
+            "program": "${workspaceFolder}/06-mastermind/bin/Debug/net5.0/06-mastermind.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/06-mastermind",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
             "name": "07-speed",
             "type": "coreclr",
             "request": "launch",
