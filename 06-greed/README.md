@@ -34,4 +34,4 @@ root                    (project root folder)
 * raylib-cs 3.7.0.1
 
 ## Author
-* Justin Mikolajcik
+* Justin Mikolajcik (mik19003@byui.edu)
